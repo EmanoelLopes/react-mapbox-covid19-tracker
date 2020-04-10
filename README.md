@@ -1,5 +1,7 @@
 ## 🦠 React & Mapbox COVID-19 Tracker 🦠
 
+### [Live Demo](https://react-covid19-tracker.netlify.com/)
+
 I made this app inspired in this [project](https://github.com/alemesa/mapbox-covid19) and this [article](https://dev.to/alemesa/how-to-create-a-covid-19-map-with-mapbox-and-react-3jgf).
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

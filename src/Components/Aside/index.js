@@ -52,6 +52,21 @@ const Aside = () => {
         </p>
       </div>
       <Search />
+      <div className="social-media">
+        <a
+          href="https://github.com/EmanoelLopes/react-mapbox-covid19-tracker"
+          target="_blank"
+          rel="noopener"
+          title="Github"
+        >
+          <box-icon
+            type="logo"
+            name="github"
+            size="lg"
+            color="#4c4c5c"
+          />
+        </a>
+      </div>
     </aside>
   );
 };

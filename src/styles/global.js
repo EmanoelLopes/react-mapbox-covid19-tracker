@@ -36,6 +36,7 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     overflow-y: auto;
     padding: 24px;
+    position: relative;
     width: 100%;
 
     .aside-container {
@@ -85,6 +86,17 @@ const GlobalStyle = createGlobalStyle`
       border: 1px solid rgb(204, 204, 204);
       border-radius: 4px;
       padding: 16px;
+    }
+
+    .social-media {
+      align-items: center;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      left: 0;
+      padding: 16px;
+      position: absolute;
+      width: 100%;
     }
   }
 
