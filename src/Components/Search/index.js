@@ -39,19 +39,19 @@ const Search = () => {
 
   return (
     <div className="search">
-      <h2>Search for Country:</h2>
-      <form noValidate>
+      <h2>Filter by Country:</h2>
+      <form className="search-form" noValidate>
         <input
           onChange={handleChange}
           type="text"
           placeholder="SEARCH FOR A COUNTRY"
         />
-        <button type="submit" onClick={handleSubmit}>
-          Search
+        <button className="search-submit" type="submit" onClick={handleSubmit}>
+          <box-icon name="search-alt" />
         </button>
       </form>
       {hasError && <p className="alert-error">{errorMessage}</p>}
-      {!hasError && (
+      {(!hasError && country.timeline) && (
         <div className="search-result">
           <h3>
             {country.country && <strong>Country: {country.country}</strong>}

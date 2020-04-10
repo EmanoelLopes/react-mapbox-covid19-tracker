@@ -20,29 +20,37 @@ const Aside = () => {
 
   return (
     <aside className="aside-content">
-      <h1>COVID 19 Tracker</h1>
-      <h2>Historical</h2>
-      <p>
-        Cases:
-        <strong>
-          {' '}
-          {cases && cases[getTheLastDay()]}
-        </strong>
-      </p>
-      <p>
-        Deaths:
-        <strong>
-          {' '}
-          {deaths && deaths[getTheLastDay()]}
-        </strong>
-      </p>
-      <p>
-        Recovereds:
-        {' '}
-        <strong>
-          {recovered && recovered[getTheLastDay()]}
-        </strong>
-      </p>
+      <h1>
+        <span role="img" aria-label="virus">
+          🦠
+        </span>
+        COVID-19 Tracker
+        <span role="img" aria-label="virus">
+          🦠
+        </span>
+      </h1>
+      <div className="aside-container">
+        <h2>
+          Total Cases:
+          <strong> {cases && cases[getTheLastDay()]}</strong>
+        </h2>
+        <p>
+          Active Cases:{' '}
+          <strong>
+            {cases &&
+              cases[getTheLastDay()] -
+                deaths[getTheLastDay()] -
+                recovered[getTheLastDay()]}
+          </strong>
+        </p>
+        <p>
+          Deaths:
+          <strong> {deaths && deaths[getTheLastDay()]}</strong>
+        </p>
+        <p>
+          Recovereds: <strong>{recovered && recovered[getTheLastDay()]}</strong>
+        </p>
+      </div>
       <Search />
     </aside>
   );

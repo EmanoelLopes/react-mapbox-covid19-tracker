@@ -1,8 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+  *, *::before, *::after { box-sizing: border-box }
+
   html {
     box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
     font-size: 15px;
   }
 
@@ -24,26 +27,69 @@ const GlobalStyle = createGlobalStyle`
 
   .App {
     display: flex;
-    font-family: 'Ubuntu', sans-serif;
   }
 
   .aside-content {
-    background-color: #4c4c4c;
-    color: #fff;
-    max-width: 300px;
+    background-color: rgb(221, 221, 221);
+    color: #4c4c4c;
+    max-width: 340px;
     overflow-x: hidden;
     overflow-y: auto;
-    padding: 16px;
+    padding: 24px;
     width: 100%;
+
+    .aside-container {
+      background-color: #fff;
+      border: 1px solid rgb(204, 204, 204);
+      border-radius: 4px;
+      padding: 16px;
+    }
+
+    h1 {
+      font-weight: 600;
+      text-align: center;
+    }
 
     p {
       font-size: 18px;
+    }
+
+    .search {
+      border-top: 2px solid #dddddd;
+    }
+
+    .search .search-form {
+      position: relative;
+      display: flex;
+      height: 70px;
+    }
+
+    .search .search-form input {
+      border: 1px solid rgb(204, 204, 204);
+      border-radius: 4px;
+      padding: 12px;
+      position: absolute;
+      width: 100%;
+    }
+
+    .search .search-form .search-submit {
+      border: none;
+      background-color: transparent;
+      position: absolute;
+      right: 0;
+      top: 8px;
+    }
+
+    .search-result {
+      background-color: #fff;
+      border: 1px solid rgb(204, 204, 204);
+      border-radius: 4px;
+      padding: 16px;
     }
   }
 
   .mapboxgl-popup {
     color: #424242;
-    font-family: 'Ubuntu', sans-serif;
     font-size: 15px;
     margin: 0;
     padding: 0;
