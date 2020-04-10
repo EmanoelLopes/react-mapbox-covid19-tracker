@@ -1,6 +1,6 @@
 ## 🦠 React & Mapbox COVID-19 Tracker 🦠
 
-Inspired in this [project](https://github.com/alemesa/mapbox-covid19)
+I made this app inspired in this [project](https://github.com/alemesa/mapbox-covid19) and this [article](https://dev.to/alemesa/how-to-create-a-covid-19-map-with-mapbox-and-react-3jgf).
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -17,7 +17,7 @@ You will also see any lint errors in the console.
 NOTE: Remember to put a `.env` file with the Mapbox Access Token, like example bellow:
 
 ```
-REACT_APP_MAPBOX_GL_TOKEN="my-secret"
+REACT_APP_MAPBOX_GL_TOKEN="my-mapbox-secret-token"
 ```
 You can know more on this [link](https://docs.mapbox.com/help/how-mapbox-works/access-tokens/)
 
@@ -25,4 +25,4 @@ You can know more on this [link](https://docs.mapbox.com/help/how-mapbox-works/a
 
 * [React](https://github.com/facebook/react)
 * [Mapbox](https://www.mapbox.com/)
-* [COVID19 API](https://docs.corona.lmao-xd.wtf/)
+* [COVID-19 API](https://docs.corona.lmao-xd.wtf/)
