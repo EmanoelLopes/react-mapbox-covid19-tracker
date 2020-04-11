@@ -45,7 +45,7 @@ const Search = () => {
         <S.SearchInput
           onChange={handleChange}
           type="text"
-          placeholder="SEARCH FOR A COUNTRY"
+          placeholder="Search for a Country..."
         />
         <S.SearchSubmit type="submit" onClick={handleSubmit}>
           <box-icon name="search-alt" />

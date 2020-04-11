@@ -19,6 +19,7 @@ export const SearchForm = styled.form`
 export const SearchInput = styled.input`
   border-radius: 4px;
   border: 1px solid rgb(204, 204, 204);
+  font-size: 16px;
   padding: 12px;
   width: 100%;
 `;

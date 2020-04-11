@@ -42,6 +42,9 @@ const Aside = () => {
         <p className="recovered">
           Recovereds: <strong>{recovered && recovered[getTheLastDay()]}</strong>
         </p>
+        <p>
+          <small>* Last update: {getTheLastDay()}</small>
+        </p>
       </S.AsideContainer>
       <Search />
     </S.AsideContent>

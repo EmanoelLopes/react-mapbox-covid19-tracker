@@ -11,19 +11,29 @@ export const HeaderWrapper = styled.header`
 `;
 
 export const HeaderTitle = styled.h1`
+  border-right: 2px solid #ddd;
   color: #474747;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
+  margin-right: 8px;
+
+  ${media.tablet`
+    border: none;
+    font-size: 24px;
+    margin-right: 0;
+  `}
 
   > span {
+    display: block;
     font-size: 12px;
     line-height: 18px;
-    display: block;
+    margin-right: 8px;
 
     ${media.tablet`
+      display: inline-block;
       font-size: 24px;
       font-weight: 400;
-      display: inline-block;
+      margin-right: 0;
     `}
   }
 `;

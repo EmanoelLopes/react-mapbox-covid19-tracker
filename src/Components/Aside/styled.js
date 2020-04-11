@@ -47,5 +47,9 @@ export const AsideContainer = styled.div`
   > p:not(:last-child) {
     margin-bottom: 16px;
   }
+
+  p > small {
+    font-size: 14px;
+  }
 `;
 
