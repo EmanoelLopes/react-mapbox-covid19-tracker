@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import config from 'config';
 import { getTheLastDay } from 'helpers';
+import * as S from './styled';
 
 const Search = () => {
   const [inputValue, setInputValue] = useState('');
@@ -38,21 +39,21 @@ const Search = () => {
   }
 
   return (
-    <div className="search">
+    <S.SearchContainer>
       <h2>Filter by Country:</h2>
-      <form className="search-form" noValidate>
-        <input
+      <S.SearchForm noValidate>
+        <S.SearchInput
           onChange={handleChange}
           type="text"
           placeholder="SEARCH FOR A COUNTRY"
         />
-        <button className="search-submit" type="submit" onClick={handleSubmit}>
+        <S.SearchSubmit type="submit" onClick={handleSubmit}>
           <box-icon name="search-alt" />
-        </button>
-      </form>
+        </S.SearchSubmit>
+      </S.SearchForm>
       {hasError && <p className="alert-error">{errorMessage}</p>}
-      {(!hasError && country.timeline) && (
-        <div className="search-result">
+      {!hasError && country.timeline && (
+        <S.SearchResult>
           <h3>
             {country.country && <strong>Country: {country.country}</strong>}
           </h3>
@@ -63,6 +64,13 @@ const Search = () => {
                 {country.timeline && country.timeline.cases[getTheLastDay()]}
               </p>
               <p>
+                Active Cases:{' '}
+                {country.timeline &&
+                  country.timeline.cases[getTheLastDay()] -
+                    country.timeline.deaths[getTheLastDay()] -
+                    country.timeline.recovered[getTheLastDay()]}
+              </p>
+              <p>
                 Deaths:{' '}
                 {country.timeline && country.timeline.deaths[getTheLastDay()]}
               </p>
@@ -71,18 +79,11 @@ const Search = () => {
                 {country.timeline &&
                   country.timeline.recovered[getTheLastDay()]}
               </p>
-              <p>
-                Active Cases:{' '}
-                {country.timeline &&
-                  country.timeline.cases[getTheLastDay()] -
-                    country.timeline.deaths[getTheLastDay()] -
-                    country.timeline.recovered[getTheLastDay()]}
-              </p>
             </div>
           )}
-        </div>
+        </S.SearchResult>
       )}
-    </div>
+    </S.SearchContainer>
   );
 };
 

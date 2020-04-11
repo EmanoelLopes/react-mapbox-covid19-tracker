@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl';
 import useSWR from 'swr';
 import config from 'config';
+import * as S from './styled';
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_GL_TOKEN;
 
@@ -21,9 +22,9 @@ const MapContainer = () => {
   }, [countries, mapConfig]);
 
   return (
-    <div className="mapContainer">
-      <div className="mapBox" ref={mapboxElRef} />
-    </div>
+    <S.MapContainer>
+      <S.MapBox ref={mapboxElRef} />
+    </S.MapContainer>
   );
 };
 

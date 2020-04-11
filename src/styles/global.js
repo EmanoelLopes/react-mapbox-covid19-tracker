@@ -1,11 +1,13 @@
+import reset from 'styled-reset';
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+  ${reset}
   *, *::before, *::after { box-sizing: border-box }
 
   html {
     box-sizing: border-box;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Archivo', sans-serif;
     font-size: 15px;
   }
 
@@ -17,89 +19,12 @@ const GlobalStyle = createGlobalStyle`
     overflow: hidden;
   }
 
-  [data-react-root="app"],
-  .App,
-  .mapContainer,
-  .mapBox {
+  [data-react-root="app"] {
     height: 100%;
     width: 100%;
   }
 
-  .App {
-    display: flex;
-  }
-
-  .aside-content {
-    background-color: rgb(221, 221, 221);
-    color: #4c4c4c;
-    max-width: 340px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    padding: 24px;
-    position: relative;
-    width: 100%;
-
-    .aside-container {
-      background-color: #fff;
-      border: 1px solid rgb(204, 204, 204);
-      border-radius: 4px;
-      padding: 16px;
-    }
-
-    h1 {
-      font-weight: 600;
-      text-align: center;
-    }
-
-    p {
-      font-size: 18px;
-    }
-
-    .search {
-      border-top: 2px solid #dddddd;
-    }
-
-    .search .search-form {
-      position: relative;
-      display: flex;
-      height: 70px;
-    }
-
-    .search .search-form input {
-      border: 1px solid rgb(204, 204, 204);
-      border-radius: 4px;
-      padding: 12px;
-      position: absolute;
-      width: 100%;
-    }
-
-    .search .search-form .search-submit {
-      border: none;
-      background-color: transparent;
-      position: absolute;
-      right: 0;
-      top: 8px;
-    }
-
-    .search-result {
-      background-color: #fff;
-      border: 1px solid rgb(204, 204, 204);
-      border-radius: 4px;
-      padding: 16px;
-    }
-
-    .social-media {
-      align-items: center;
-      bottom: 0;
-      display: flex;
-      justify-content: center;
-      left: 0;
-      padding: 16px;
-      position: absolute;
-      width: 100%;
-    }
-  }
-
+  /* MapboxGL Custom Styles */
   .mapboxgl-popup {
     color: #424242;
     font-size: 15px;
@@ -124,16 +49,17 @@ const GlobalStyle = createGlobalStyle`
       border-bottom: 1px solid rgba(black, 0.2);
 
       b {
-        font-size: 1.2rem;
-        color: #212121;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #4c4c4c;
         padding: 0 5px;
       }
     }
 
     img {
       display: block;
-      width: 3rem;
-      height: 3rem;
+      width: 2rem;
+      height: 2rem;
     }
   }
 `;

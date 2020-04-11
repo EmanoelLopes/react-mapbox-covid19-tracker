@@ -5,7 +5,7 @@ import { mapLayer } from 'config/mapLayer';
 export const mapConfig = (data, ref) => {
   const map = new mapboxgl.Map({
     container: ref.current,
-    style: 'mapbox://styles/mapbox/dark-v10',
+    style: 'mapbox://styles/mapbox/streets-v9',
     center: [16, 27],
     zoom: 2,
   });

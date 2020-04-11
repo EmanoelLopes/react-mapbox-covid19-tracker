@@ -1,16 +1,11 @@
 import React from 'react';
-import Aside from 'Components/Aside';
-import MapContainer from 'Components/MapContainer';
-import GlobalStyle from 'styles/global';
+import Layout from 'Components/Layout';
+import { AppContainer } from './styled';
 
-function App() {
-  return (
-    <div className="App">
-      <GlobalStyle />
-      <Aside />
-      <MapContainer />
-    </div>
-  );
-}
+const App = () => (
+  <AppContainer>
+    <Layout />
+  </AppContainer>
+);
 
 export default App;
