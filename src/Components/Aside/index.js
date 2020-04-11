@@ -11,7 +11,9 @@ const Aside = () => {
   const getHistorical = () =>
     fetch(historicalAll)
       .then((r) => r.json())
-      .then((data) => setHistorical(data));
+      .then((data) => {
+        setHistorical(data);
+      });
 
   useEffect(() => {
     getHistorical();

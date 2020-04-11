@@ -30,7 +30,6 @@ export const HeaderTitle = styled.h1`
     margin-right: 8px;
 
     ${media.tablet`
-      display: inline-block;
       font-size: 24px;
       font-weight: 400;
       margin-right: 0;
