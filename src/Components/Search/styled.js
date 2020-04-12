@@ -64,3 +64,8 @@ export const SearchResult = styled.div`
     }
   }
 `;
+
+export const SearchResultChartContainer = styled.div`
+  height: 300px;
+  width: 100% ;
+`;

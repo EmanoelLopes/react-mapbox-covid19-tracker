@@ -1,7 +1,14 @@
 import React, { useState, useRef } from 'react';
 import axios from 'axios';
 import {
-  AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+  AreaChart,
+  Area,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
 } from 'recharts';
 import config from 'config';
 import { getTheLastDay } from 'helpers';
@@ -101,23 +108,27 @@ const Search = () => {
               </p>
             </div>
           )}
-          <AreaChart
-            width={300}
-            height={300}
-            data={chartData}
-            margin={{
-              top: 5, right: 5, left: 5, bottom: 5,
-            }}
-          >
-            <CartesianGrid strokeDasharray="2 2" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Area type="monotone" dataKey="cases" stroke="#ef3b2c" fill="#ef3b2c" activeDot={{ r: 8 }} />
-            <Area type="monotone" dataKey="deaths" stroke="#474747" fill="#474747" />
-            <Area type="monotone" dataKey="recovered" stroke="#198700" fill="#198700" />
-          </AreaChart>
+          <S.SearchResultChartContainer>
+            <ResponsiveContainer>
+              <AreaChart
+                width={300}
+                height={300}
+                data={chartData}
+                margin={{
+                  top: 5, right: 5, left: 5, bottom: 5,
+                }}
+              >
+                <CartesianGrid strokeDasharray="2 2" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Area type="monotone" dataKey="cases" stroke="#ef3b2c" fill="#ef3b2c" activeDot={{ r: 8 }} />
+                <Area type="monotone" dataKey="deaths" stroke="#474747" fill="#474747" />
+                <Area type="monotone" dataKey="recovered" stroke="#198700" fill="#198700" />
+              </AreaChart>
+            </ResponsiveContainer>
+          </S.SearchResultChartContainer>
         </S.SearchResult>
       )}
     </S.SearchContainer>

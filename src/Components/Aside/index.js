@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import {
-  AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+  AreaChart,
+  Area,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
 } from 'recharts';
 import config from 'config';
 import Search from 'Components/Search';
@@ -61,26 +68,28 @@ const Aside = () => {
         <p>
           <small>* Last update: {getTheLastDay()}</small>
         </p>
+        <S.AsideChartContainer>
+          <ResponsiveContainer>
+            <AreaChart
+              width={280}
+              height={300}
+              data={chartData}
+              margin={{
+                top: 5, right: 5, left: 5, bottom: 5,
+              }}
+            >
+              <CartesianGrid strokeDasharray="2 2" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Area type="monotone" dataKey="cases" stroke="#ef3b2c" fill="#ef3b2c" activeDot={{ r: 8 }} />
+              <Area type="monotone" dataKey="deaths" stroke="#474747" fill="#474747" />
+              <Area type="monotone" dataKey="recovered" stroke="#198700" fill="#198700" />
+            </AreaChart>
+          </ResponsiveContainer>
+        </S.AsideChartContainer>
       </S.AsideContainer>
-      <S.AsideMainChart>
-        <AreaChart
-          width={280}
-          height={300}
-          data={chartData}
-          margin={{
-            top: 5, right: 5, left: 5, bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="2 2" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Area type="monotone" dataKey="cases" stroke="#ef3b2c" fill="#ef3b2c" activeDot={{ r: 8 }} />
-          <Area type="monotone" dataKey="deaths" stroke="#474747" fill="#474747" />
-          <Area type="monotone" dataKey="recovered" stroke="#198700" fill="#198700" />
-        </AreaChart>
-      </S.AsideMainChart>
       <Search />
     </S.AsideContent>
   );
