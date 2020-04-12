@@ -11,7 +11,7 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import config from 'config';
-import { getTheLastDay } from 'helpers';
+import { getTheLastDay, formatNumeral } from 'helpers';
 import * as S from './styled';
 
 const Search = () => {
@@ -88,23 +88,25 @@ const Search = () => {
             <div className="timeline">
               <p className="total-cases">
                 Total Cases:{' '}
-                {country.timeline && country.timeline.cases[getTheLastDay()]}
+                {country.timeline &&
+                  formatNumeral(country.timeline.cases[getTheLastDay()])}
               </p>
               <p className="active-cases">
                 Active Cases:{' '}
-                {country.timeline &&
+                {country.timeline && formatNumeral(
                   country.timeline.cases[getTheLastDay()] -
                     country.timeline.deaths[getTheLastDay()] -
-                    country.timeline.recovered[getTheLastDay()]}
+                    country.timeline.recovered[getTheLastDay()])}
               </p>
               <p className="deaths">
                 Deaths:{' '}
-                {country.timeline && country.timeline.deaths[getTheLastDay()]}
+                {country.timeline &&
+                  formatNumeral(country.timeline.deaths[getTheLastDay()])}
               </p>
               <p className="recovered">
                 Recovered:{' '}
                 {country.timeline &&
-                  country.timeline.recovered[getTheLastDay()]}
+                  formatNumeral(country.timeline.recovered[getTheLastDay()])}
               </p>
             </div>
           )}

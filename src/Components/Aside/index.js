@@ -12,7 +12,7 @@ import {
 import config from 'config';
 import Search from 'Components/Search';
 import * as S from './styled';
-import { getTheLastDay } from 'helpers';
+import { getTheLastDay, formatNumeral } from 'helpers';
 
 const Aside = () => {
   const [historical, setHistorical] = useState({});
@@ -46,24 +46,24 @@ const Aside = () => {
     <S.AsideContent>
       <S.AsideContainer>
         <h2>
-          Total Cases:
-          <strong> {cases && cases[getTheLastDay()]}</strong>
+          Total Cases: 
+          <strong> {cases && formatNumeral(cases[getTheLastDay()])}</strong>
         </h2>
         <p className="active-cases">
           Active Cases:{' '}
           <strong>
-            {cases &&
+            {cases && formatNumeral(
               cases[getTheLastDay()] -
                 deaths[getTheLastDay()] -
-                recovered[getTheLastDay()]}
+                recovered[getTheLastDay()])}
           </strong>
         </p>
         <p className="deaths">
           Deaths:
-          <strong> {deaths && deaths[getTheLastDay()]}</strong>
+          <strong> {deaths && formatNumeral(deaths[getTheLastDay()])}</strong>
         </p>
         <p className="recovered">
-          Recovereds: <strong>{recovered && recovered[getTheLastDay()]}</strong>
+          Recovereds: <strong>{recovered && formatNumeral(recovered[getTheLastDay()])}</strong>
         </p>
         <p>
           <small>* Last update: {getTheLastDay()}</small>
