@@ -65,3 +65,10 @@ export const AsideContainer = styled.div`
   }
 `;
 
+export const AsideMainChart = styled.div`
+  background-color: #fff;
+  border: 1px solid rgb(204, 204, 204);
+  margin-top: 24px;
+  padding: 16px;
+`;
+
