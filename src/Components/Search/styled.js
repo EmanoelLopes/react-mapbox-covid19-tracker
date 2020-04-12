@@ -34,20 +34,33 @@ export const SearchSubmit = styled.button`
 
 export const SearchResult = styled.div`
   background-color: #fff;
-  border: 1px solid rgb(204, 204, 204);
   border-radius: 4px;
+  border: 1px solid rgb(204, 204, 204);
+  margin-bottom: 24px;
   padding: 16px;
 
   h3 {
     font-size: 18px;
+    font-weight: 600;
     margin-bottom: 16px; 
   }
 
   p {
     font-size: 16px;
+    margin-bottom: 16px;
 
-    &:not(:last-child) {
-      margin-bottom: 16px;
+    &.total-cases {
+      color: #ef3b2c;
+    }
+
+    &.active-cases {
+      color: #333;
+    }
+    &.deaths {
+      color: #777;
+    }
+    &.recovered {
+      color: #198700
     }
   }
 `;

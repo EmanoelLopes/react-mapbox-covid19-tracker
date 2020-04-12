@@ -7,6 +7,7 @@ export const AsideContent = styled.aside`
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   color: #4c4c4c;
   display: none;
+  height: 100%;
   max-width: 380px;
   overflow-x: hidden;
   overflow-y: auto;
@@ -47,7 +48,7 @@ export const AsideContainer = styled.div`
     font-size: 18px;
 
     &.active-cases {
-
+      color: #333;
     }
     &.deaths {
       color: #777;

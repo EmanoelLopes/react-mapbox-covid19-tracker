@@ -30,3 +30,4 @@ You can know more on this [link](https://docs.mapbox.com/help/how-mapbox-works/a
 * [React](https://github.com/facebook/react)
 * [Mapbox](https://www.mapbox.com/)
 * [COVID-19 API](https://docs.corona.lmao-xd.wtf/)
+* [Recharts](https://recharts.org/en-US)
