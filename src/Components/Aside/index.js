@@ -26,14 +26,12 @@ const Aside = () => {
         .then((data) => {
           setHistorical(data);
           setChartData([
-            ...Object.keys(data.cases).map((item, index) => {
-              return {
-                name: item,
-                cases: Object.values(data.cases)[index],
-                deaths: Object.values(data.deaths)[index],
-                recovered: Object.values(data.recovered)[index],
-              };
-            })
+            ...Object.keys(data.cases).map((item, index) => ({
+              name: item,
+              cases: Object.values(data.cases)[index],
+              deaths: Object.values(data.deaths)[index],
+              recovered: Object.values(data.recovered)[index],
+            })),
           ]);
         });
 

@@ -32,15 +32,13 @@ const Search = () => {
         setErrorMessage('');
         setHasError(false);
         setChartData([
-          ...Object.keys(data.timeline.cases).map((item, index) => {
-            return {
-              name: item,
-              cases: Object.values(data.timeline.cases)[index],
-              deaths: Object.values(data.timeline.deaths)[index],
-              recovered: Object.values(data.timeline.recovered)[index],
-            };
-          })
-        ])
+          ...Object.keys(data.timeline.cases).map((item, index) => ({
+            name: item,
+            cases: Object.values(data.timeline.cases)[index],
+            deaths: Object.values(data.timeline.deaths)[index],
+            recovered: Object.values(data.timeline.recovered)[index],
+          })),
+        ]);
       }
     } catch (e) {
       if (e.response) {

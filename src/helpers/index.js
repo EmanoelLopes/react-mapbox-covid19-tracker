@@ -9,5 +9,6 @@ export const getTheLastDay = () => {
 };
 
 export const formatNumeral = (value) => {
-  return numeral(value).format('0,0').replace(/,/g, '.');
+  const regEx = /[,]/g;
+  return numeral(value).format('0,0').replace(regEx, '.');
 };
