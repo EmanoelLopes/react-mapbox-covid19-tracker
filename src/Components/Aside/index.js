@@ -19,26 +19,26 @@ const Aside = () => {
   const [chartData, setChartData] = useState([]);
   const { historicalAll } = config;
 
-  const getHistorical = async () =>
-    await fetch(historicalAll)
-      .then((r) => r.json())
-      .then((data) => {
-        setHistorical(data);
-        setChartData([
-          ...Object.keys(data.cases).map((item, index) => {
-            return {
-              name: item,
-              cases: Object.values(data.cases)[index],
-              deaths: Object.values(data.deaths)[index],
-              recovered: Object.values(data.recovered)[index],
-            };
-          })
-        ]);
-      });
-
   useEffect(() => {
+    const getHistorical = async () =>
+      await fetch(historicalAll)
+        .then((r) => r.json())
+        .then((data) => {
+          setHistorical(data);
+          setChartData([
+            ...Object.keys(data.cases).map((item, index) => {
+              return {
+                name: item,
+                cases: Object.values(data.cases)[index],
+                deaths: Object.values(data.deaths)[index],
+                recovered: Object.values(data.recovered)[index],
+              };
+            })
+          ]);
+        });
+
     getHistorical();
-  }, []);
+  }, [historicalAll]);
 
   const { cases, deaths, recovered } = historical;
 
