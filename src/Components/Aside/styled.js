@@ -11,7 +11,7 @@ export const AsideContent = styled.aside`
   max-width: 380px;
   overflow-x: hidden;
   overflow-y: auto;
-  padding: 24px;
+  padding: 24px 24px 48px;
   position: relative;
   width: 100%;
   z-index: 1;
