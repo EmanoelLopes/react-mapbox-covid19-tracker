@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import axios from 'axios';
 import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
@@ -14,6 +14,7 @@ const Search = () => {
   const [chartData, setChartData] = useState([]);
   const [hasError, setHasError] = useState(false);
   const { historicalByCountry } = config;
+  const inputEl = useRef(null);
 
   const getHistoricalByCountry = async value => {  
     try {
@@ -51,6 +52,8 @@ const Search = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     getHistoricalByCountry(inputValue);
+    setInputValue('');
+    inputEl.current.focus();
   }
 
   return (
@@ -58,8 +61,10 @@ const Search = () => {
       <h2>Cases by Country:</h2>
       <S.SearchForm noValidate>
         <S.SearchInput
+          ref={inputEl}
           onChange={handleChange}
           type="text"
+          value={inputValue}
           placeholder="Search for a Country..."
         />
         <S.SearchSubmit type="submit" onClick={handleSubmit}>
