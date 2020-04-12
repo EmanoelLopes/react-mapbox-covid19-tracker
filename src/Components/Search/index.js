@@ -110,15 +110,8 @@ const Search = () => {
           )}
           <S.SearchResultChartContainer>
             <ResponsiveContainer>
-              <AreaChart
-                width={300}
-                height={300}
-                data={chartData}
-                margin={{
-                  top: 5, right: 5, left: 5, bottom: 5,
-                }}
-              >
-                <CartesianGrid strokeDasharray="2 2" />
+              <AreaChart data={chartData}>
+                <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" />
                 <YAxis />
                 <Tooltip />
