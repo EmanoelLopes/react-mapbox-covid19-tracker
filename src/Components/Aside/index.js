@@ -12,8 +12,8 @@ const Aside = () => {
   const [chartData, setChartData] = useState([]);
   const { historicalAll } = config;
 
-  const getHistorical = () =>
-    fetch(historicalAll)
+  const getHistorical = async () =>
+    await fetch(historicalAll)
       .then((r) => r.json())
       .then((data) => {
         setHistorical(data);
@@ -22,6 +22,8 @@ const Aside = () => {
             return {
               name: item,
               cases: Object.values(data.cases)[index],
+              deaths: Object.values(data.deaths)[index],
+              recovered: Object.values(data.recovered)[index],
             };
           })
         ]);
@@ -32,7 +34,6 @@ const Aside = () => {
   }, []);
 
   const { cases, deaths, recovered } = historical;
-  console.log(chartData);
 
   return (
     <S.AsideContent>
@@ -76,6 +77,8 @@ const Aside = () => {
           <Tooltip />
           <Legend />
           <Line type="monotone" dataKey="cases" stroke="#ef3b2c" activeDot={{ r: 8 }} />
+          <Line type="monotone" dataKey="deaths" stroke="#777" />
+          <Line type="monotone" dataKey="recovered" stroke="#198700" />
         </LineChart>
       </S.AsideMainChart>
       <Search />
