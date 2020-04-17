@@ -4,6 +4,13 @@ export const mapLayer = {
   type: 'circle',
   paint: {
     'circle-opacity': 0.65,
+    "circle-stroke-width": [
+      "interpolate",
+      ["linear"],
+      ["get", "cases"],
+      1, 1,
+      100000, 0.5,
+    ],
     'circle-radius': [
       'interpolate',
       ['linear'],
