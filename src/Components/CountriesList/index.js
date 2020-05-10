@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import config from 'config';
+import { formatNumeral } from 'helpers';
 import * as S from './styled';
 
 const CountriesList = () => {
@@ -19,16 +20,25 @@ const CountriesList = () => {
 
   return (
     <S.CountriesListContainer>
+      <h3>
+        <strong>Country</strong>
+        <strong>Total Cases</strong>
+      </h3>
       <ul>
-        {countries.map((c) => (
-         <li key={uuidv4()}>
-            <span>{c.country}</span>
-            <span>{c.cases}</span>
-          </li>
-        ))}
+        {countries
+          .sort((a, b) => b['cases'] - a['cases'])
+          .map((c) => (
+            <S.ListItem key={uuidv4()}>
+              <span>
+                <S.CountryFlag src={c.countryInfo.flag} alt={c.country} />
+                <strong>{c.country}</strong>
+              </span>
+              <span>{formatNumeral(c.cases)}</span>
+            </S.ListItem>
+          ))}
       </ul>
     </S.CountriesListContainer>
-  )
+  );
 };
 
 export default CountriesList;
