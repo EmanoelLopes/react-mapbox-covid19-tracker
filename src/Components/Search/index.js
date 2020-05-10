@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, Suspense } from 'react';
 import axios from 'axios';
 import {
   AreaChart,
@@ -12,6 +12,7 @@ import {
 } from 'recharts';
 import config from 'config';
 import { getTheLastDay, formatNumeral } from 'helpers';
+import Wait from 'Components/Wait';
 import * as S from './styled';
 
 const Search = () => {
@@ -108,20 +109,22 @@ const Search = () => {
               </p>
             </div>
           )}
-          <S.SearchResultChartContainer>
-            <ResponsiveContainer>
-              <AreaChart data={chartData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Area type="monotone" dataKey="cases" stroke="#ef3b2c" fill="#ef3b2c" activeDot={{ r: 8 }} />
-                <Area type="monotone" dataKey="deaths" stroke="#474747" fill="#474747" />
-                <Area type="monotone" dataKey="recovered" stroke="#198700" fill="#198700" />
-              </AreaChart>
-            </ResponsiveContainer>
-          </S.SearchResultChartContainer>
+          <Suspense fallback={<Wait />}>
+            <S.SearchResultChartContainer>
+              <ResponsiveContainer>
+                <AreaChart data={chartData}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Area type="monotone" dataKey="cases" stroke="#ef3b2c" fill="#ef3b2c" activeDot={{ r: 8 }} />
+                  <Area type="monotone" dataKey="deaths" stroke="#474747" fill="#474747" />
+                  <Area type="monotone" dataKey="recovered" stroke="#198700" fill="#198700" />
+                </AreaChart>
+              </ResponsiveContainer>
+            </S.SearchResultChartContainer>
+          </Suspense>
         </S.SearchResult>
       )}
     </S.SearchContainer>
