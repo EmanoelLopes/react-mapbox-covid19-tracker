@@ -11,6 +11,7 @@ import {
 } from 'recharts';
 import config from 'config';
 import Search from 'Components/Search';
+import CountriesList from 'Components/CountriesList';
 import * as S from './styled';
 import { getTheLastDay, formatNumeral } from 'helpers';
 
@@ -82,6 +83,7 @@ const Aside = () => {
         </S.AsideChartContainer>
       </S.AsideContainer>
       <Search />
+      <CountriesList />
     </S.AsideContent>
   );
 };

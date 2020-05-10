@@ -12,16 +12,16 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    width: 100vw;
-    height: 100vh;
     margin: 0;
     padding: 0;
-    overflow: hidden;
   }
 
+  html,
+  body,
   [data-react-root="app"] {
-    height: 100%;
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
   }
 
   /* MapboxGL Custom Styles */

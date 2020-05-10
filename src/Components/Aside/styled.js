@@ -2,8 +2,7 @@ import styled from 'styled-components';
 import { media } from 'styles/media';
 
 export const AsideContent = styled.aside`
-  background-color: rgb(221, 221, 221);
-  border-right: 2px solid #ddd;
+  background-color: rgb(52, 73, 94);
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   color: #4c4c4c;
   display: none;
@@ -23,7 +22,6 @@ export const AsideContent = styled.aside`
   .chart-area {
     align-items: center;
     background-color: #fff;
-    border: 1px solid rgb(204,204,204);
     display: flex;
     justify-content: center;
     margin-top: 24px;
@@ -33,7 +31,6 @@ export const AsideContent = styled.aside`
 
 export const AsideContainer = styled.div`
   background-color: #fff;
-  border: 1px solid rgb(204, 204, 204);
   border-radius: 4px;
   padding: 16px;
 
