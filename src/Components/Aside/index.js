@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import {
   AreaChart,
   Area,
@@ -11,9 +11,11 @@ import {
 } from 'recharts';
 import config from 'config';
 import Search from 'Components/Search';
-import CountriesList from 'Components/CountriesList';
+import Wait from 'Components/Wait';
 import * as S from './styled';
 import { getTheLastDay, formatNumeral } from 'helpers';
+
+const CountriesList = lazy(() => import('Components/CountriesList'));
 
 const Aside = () => {
   const [historical, setHistorical] = useState({});
@@ -45,16 +47,18 @@ const Aside = () => {
     <S.AsideContent>
       <S.AsideContainer>
         <h2>
-          Total Cases: 
+          Total Cases:
           <strong> {cases && formatNumeral(cases[getTheLastDay()])}</strong>
         </h2>
         <p className="active-cases">
           Active Cases:{' '}
           <strong>
-            {cases && formatNumeral(
-              cases[getTheLastDay()] -
-                deaths[getTheLastDay()] -
-                recovered[getTheLastDay()])}
+            {cases &&
+              formatNumeral(
+                cases[getTheLastDay()] -
+                  deaths[getTheLastDay()] -
+                  recovered[getTheLastDay()]
+              )}
           </strong>
         </p>
         <p className="deaths">
@@ -62,7 +66,10 @@ const Aside = () => {
           <strong> {deaths && formatNumeral(deaths[getTheLastDay()])}</strong>
         </p>
         <p className="recovered">
-          Recovereds: <strong>{recovered && formatNumeral(recovered[getTheLastDay()])}</strong>
+          Recovereds:{' '}
+          <strong>
+            {recovered && formatNumeral(recovered[getTheLastDay()])}
+          </strong>
         </p>
         <p>
           <small>* Last update: {getTheLastDay()}</small>
@@ -75,15 +82,33 @@ const Aside = () => {
               <YAxis />
               <Tooltip />
               <Legend />
-              <Area type="monotone" dataKey="cases" stroke="#ef3b2c" fill="#ef3b2c" activeDot={{ r: 8 }} />
-              <Area type="monotone" dataKey="deaths" stroke="#474747" fill="#474747" />
-              <Area type="monotone" dataKey="recovered" stroke="#198700" fill="#198700" />
+              <Area
+                type="monotone"
+                dataKey="cases"
+                stroke="#ef3b2c"
+                fill="#ef3b2c"
+                activeDot={{ r: 8 }}
+              />
+              <Area
+                type="monotone"
+                dataKey="deaths"
+                stroke="#474747"
+                fill="#474747"
+              />
+              <Area
+                type="monotone"
+                dataKey="recovered"
+                stroke="#198700"
+                fill="#198700"
+              />
             </AreaChart>
           </ResponsiveContainer>
         </S.AsideChartContainer>
       </S.AsideContainer>
       <Search />
-      <CountriesList />
+      <Suspense fallback={<Wait />}>
+        <CountriesList />
+      </Suspense>
     </S.AsideContent>
   );
 };
